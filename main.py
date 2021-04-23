@@ -109,7 +109,7 @@ class Main(QWidget):
                         head_len = conn.recv(4)
                         head_len = struct.unpack('i', head_len)[0]  # 将报头长度解包出来
                         # 再接收报头
-                        json_head = conn.recv(head_len).decode('utf-8')  # 拿到的是bytes类型的数据，要进行转码
+                        json_head = conn.recv(head_len).decode('utf-8')
                         head = json.loads(json_head)  # 拿到原本的报头
                         print(head)
                         if not upload_status:
@@ -134,6 +134,7 @@ class Main(QWidget):
                             self.signal_single_upload.emit(progress_str)
                             self.signal_history.emit(content)
                             current_file_size = 0
+                            rec_status = {"status": 0}
                             while file_size:
                                 if file_size >= buffer:  # 判断剩余文件的大小是否超过buffer
                                     content = conn.recv(buffer)
@@ -144,7 +145,6 @@ class Main(QWidget):
                                 else:
                                     content = conn.recv(file_size)
                                     f.write(content)
-                                    # file_size = 0
                                     f.close()
                                     size = os.path.getsize(save_file_path)
                                     # current_file_size = 0
@@ -153,7 +153,12 @@ class Main(QWidget):
                                         self.signal_history.emit(save_file_path + " 文件完整度检验正确\n")
                                     else:
                                         self.signal_history.emit(save_file_path + " 文件完整度检验错误！！！！\n")
+                                        rec_status['status'] = 1
                                     break
+                            ready_content = str(rec_status['status'])
+                            ready_content = ready_content.encode('utf-8')
+                            conn.send(ready_content)
+
                         if upload_status:
                             progress += 1
                             value = int(progress/total * 100)

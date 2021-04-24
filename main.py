@@ -18,6 +18,7 @@ close_command = False
 upload_status = False
 total = 0
 progress = 0
+DELETE_SOURCE = True
 
 class Main(QWidget):
     signal_thread_start = Signal(str)
@@ -84,6 +85,11 @@ class Main(QWidget):
 
 
     def start_server_thread(self):
+        global DELETE_SOURCE
+        if self.ui.checkBox.isChecked():
+            DELETE_SOURCE = True
+        else:
+            DELETE_SOURCE = False
         thread = threading.Thread(target=self.server_thread)
         thread.start()
         self.ui.startServerButton.setEnabled(False)
@@ -125,8 +131,9 @@ class Main(QWidget):
                             os.makedirs(save_path)
                         save_file_path = os.path.join(save_path, head['filename'])
                         # print(save_file_path)
-                        if os.path.exists(save_file_path):
-                            os.remove(save_file_path)
+                        if DELETE_SOURCE:
+                            if os.path.exists(save_file_path):
+                                os.remove(save_file_path)
                         with open(save_file_path, 'ab') as f:
                             localtime = self.get_localtime()
                             content = localtime + " 开始传输文件" + save_file_path + '\n'

@@ -80,9 +80,9 @@
    <widget class="QLabel" name="uploadStatusLabel">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>270</x>
       <y>20</y>
-      <width>21</width>
+      <width>16</width>
       <height>30</height>
      </rect>
     </property>
@@ -93,9 +93,9 @@
    <widget class="QLabel" name="uploadProgressLabel">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>480</x>
       <y>20</y>
-      <width>281</width>
+      <width>211</width>
       <height>30</height>
      </rect>
     </property>
@@ -145,9 +145,9 @@
    <widget class="QPushButton" name="startServerButton">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>310</x>
       <y>10</y>
-      <width>151</width>
+      <width>120</width>
       <height>71</height>
      </rect>
     </property>
@@ -158,9 +158,9 @@
    <widget class="QPushButton" name="closeServerButton">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>440</x>
       <y>10</y>
-      <width>141</width>
+      <width>120</width>
       <height>71</height>
      </rect>
     </property>
@@ -171,9 +171,9 @@
    <widget class="QPushButton" name="openFileManagerButton">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>570</x>
       <y>10</y>
-      <width>151</width>
+      <width>120</width>
       <height>71</height>
      </rect>
     </property>
@@ -184,7 +184,7 @@
    <widget class="QTextEdit" name="ipBox">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>140</x>
       <y>20</y>
       <width>151</width>
       <height>31</height>
@@ -207,9 +207,9 @@
    <widget class="QCheckBox" name="checkBox">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>240</x>
       <y>50</y>
-      <width>71</width>
+      <width>51</width>
       <height>41</height>
      </rect>
     </property>

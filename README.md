@@ -5,6 +5,9 @@
 - 基于PySide2的可视化界面
 - 带文件完整性检验
 
+## windows平台可执行文件下载
+[V1.0](https://github.com/a2824256/Python-Tcp-Upload-Server/releases/tag/v1.0)
+
 ## 客户端项目地址
 https://github.com/a2824256/Python-Tcp-Upload-Client
 

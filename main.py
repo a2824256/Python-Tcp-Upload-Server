@@ -31,6 +31,9 @@ class Main(QWidget):
     def __init__(self):
         super(Main, self).__init__()
         self.load_ui()
+        res = os.path.exists(STORE_PATH)
+        if not res:
+            os.makedirs(STORE_PATH)
 
     def __del__(self):
         global close_command
@@ -46,6 +49,7 @@ class Main(QWidget):
         ui_file.close()
         self.ip = str(socket.gethostbyname(socket.gethostname()))
         self.ui.ipBox.setText(self.ip)
+
 
     def widget_setting(self):
         self.ui.startServerButton.clicked.connect(self.start_server_thread)
@@ -70,8 +74,10 @@ class Main(QWidget):
         self.ui.uploadStatusLabel.setText(string)
 
     def open_store(self):
-        path = os.path.join(os.getcwd(), 'store')
-        os.startfile(path)
+        res = os.path.exists(STORE_PATH)
+        if not res:
+            os.makedirs(STORE_PATH)
+        os.startfile(STORE_PATH)
 
     def set_progress(self, value):
         self.ui.progressBar.setValue(value)

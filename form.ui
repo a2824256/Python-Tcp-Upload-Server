@@ -19,7 +19,7 @@
      <x>10</x>
      <y>110</y>
      <width>701</width>
-     <height>91</height>
+     <height>161</height>
     </rect>
    </property>
    <property name="title">
@@ -28,8 +28,8 @@
    <widget class="QProgressBar" name="progressBar">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>60</y>
+      <x>90</x>
+      <y>130</y>
       <width>611</width>
       <height>23</height>
      </rect>
@@ -54,9 +54,9 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>90</x>
       <y>20</y>
-      <width>131</width>
+      <width>101</width>
       <height>30</height>
      </rect>
     </property>
@@ -67,21 +67,21 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>20</y>
+      <x>10</x>
+      <y>50</y>
       <width>71</width>
       <height>30</height>
      </rect>
     </property>
     <property name="text">
-     <string>是否上传中：</string>
+     <string>上传中：</string>
     </property>
    </widget>
    <widget class="QLabel" name="uploadStatusLabel">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>20</y>
+      <x>90</x>
+      <y>50</y>
       <width>16</width>
       <height>30</height>
      </rect>
@@ -93,9 +93,9 @@
    <widget class="QLabel" name="uploadProgressLabel">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>20</y>
-      <width>211</width>
+      <x>200</x>
+      <y>90</y>
+      <width>481</width>
       <height>30</height>
      </rect>
     </property>
@@ -106,8 +106,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>20</y>
+      <x>10</x>
+      <y>90</y>
       <width>111</width>
       <height>30</height>
      </rect>
@@ -119,8 +119,8 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>60</y>
+      <x>10</x>
+      <y>130</y>
       <width>54</width>
       <height>21</height>
      </rect>
@@ -184,9 +184,9 @@
    <widget class="QTextEdit" name="ipBox">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>20</y>
-      <width>151</width>
+      <x>10</x>
+      <y>50</y>
+      <width>241</width>
       <height>31</height>
      </rect>
     </property>
@@ -204,43 +204,14 @@
      <string>局域网ip：</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>50</y>
-      <width>51</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>删除</string>
-    </property>
-    <property name="checked">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>是否删除源文件：</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>210</y>
+     <y>270</y>
      <width>701</width>
-     <height>271</height>
+     <height>211</height>
     </rect>
    </property>
    <property name="title">
@@ -252,7 +223,7 @@
       <x>10</x>
       <y>20</y>
       <width>681</width>
-      <height>241</height>
+      <height>181</height>
      </rect>
     </property>
    </widget>

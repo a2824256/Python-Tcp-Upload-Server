@@ -134,7 +134,8 @@ class Main(QWidget):
                             content = localtime + ' 上传文件' + str(total) + '个\n'
                             self.signal_history.emit(content)
                         file_size = head['filesize']
-                        save_path = os.path.join(STORE_PATH, head['filepath'])
+                        save_path = STORE_PATH + head['filepath']
+                        print(save_path)
                         if not os.path.exists(save_path):
                             os.makedirs(save_path)
                         save_file_path = os.path.join(save_path, head['filename'])

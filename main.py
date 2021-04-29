@@ -20,7 +20,6 @@ close_command = False
 upload_status = False
 total = 0
 progress = 0
-DELETE_SOURCE = True
 
 class Main(QWidget):
     signal_thread_start = Signal(str)
@@ -93,7 +92,6 @@ class Main(QWidget):
 
 
     def start_server_thread(self):
-        global DELETE_SOURCE
         thread = threading.Thread(target=self.server_thread)
         thread.start()
         self.ui.startServerButton.setEnabled(False)

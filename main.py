@@ -94,10 +94,6 @@ class Main(QWidget):
 
     def start_server_thread(self):
         global DELETE_SOURCE
-        if self.ui.checkBox.isChecked():
-            DELETE_SOURCE = True
-        else:
-            DELETE_SOURCE = False
         thread = threading.Thread(target=self.server_thread)
         thread.start()
         self.ui.startServerButton.setEnabled(False)

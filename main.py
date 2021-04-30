@@ -37,7 +37,6 @@ class Main(QWidget):
     def __del__(self):
         global close_command
         close_command = True
-        print('关闭', close_command)
 
     def load_ui(self):
         loader = QUiLoader()
@@ -117,8 +116,11 @@ class Main(QWidget):
                         head_len = conn.recv(4)
                         head_len = struct.unpack('i', head_len)[0]  # 将报头长度解包出来
                         # 再接收报头
-                        json_head = conn.recv(head_len).decode('utf-8')
-                        head = json.loads(json_head)  # 拿到原本的报头
+                        try:
+                            json_head = conn.recv(head_len).decode('utf-8')
+                            head = json.loads(json_head)  # 拿到原本的报头
+                        except:
+                            break
                         print(head)
                         if not upload_status:
                             upload_status = True
@@ -128,7 +130,7 @@ class Main(QWidget):
                             content = localtime + ' 上传文件' + str(total) + '个\n'
                             self.signal_history.emit(content)
                         file_size = head['filesize']
-                        save_path = STORE_PATH + head['filepath']
+                        save_path = os.path.join(STORE_PATH, head['filepath'])
                         print(save_path)
                         if not os.path.exists(save_path):
                             os.makedirs(save_path)
@@ -162,6 +164,7 @@ class Main(QWidget):
                                         self.signal_history.emit(save_file_path + " 文件完整度检验正确\n")
                                     else:
                                         self.signal_history.emit(save_file_path + " 文件完整度检验错误！！！！\n")
+                                        print("实际长度:", size, ",真实长度:", head['filesize'])
                                         rec_status['status'] = 1
                                     break
                             ready_content = str(rec_status['status'])
@@ -189,12 +192,15 @@ class Main(QWidget):
                             traceback.print_exc()
                         # print('close')
                         conn.close()
+                        self.signal_progress.emit(0)
+                        self.signal_single_upload.emit('0/0')
                         break
             except Exception:
                 if DEBUG:
                     import traceback
                     traceback.print_exc()
-                # print('continue')
+                self.signal_progress.emit(0)
+                self.signal_single_upload.emit('0/0')
                 continue
         sk.close()
         self.signal_thread_start.emit("关闭")

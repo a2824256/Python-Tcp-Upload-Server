@@ -169,7 +169,7 @@ class Main(QWidget):
                                     break
                             ready_content = str(rec_status['status'])
                             ready_content = ready_content.encode('utf-8')
-                            conn.send(ready_content)
+                            conn.sendall(ready_content)
 
                         if upload_status:
                             progress += 1
